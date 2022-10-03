@@ -1,8 +1,8 @@
 name: ViaOps CI
 on:
   pull_request:
-    branches: [ master, release/develop ]
-    
+    branches: [ main, release/develop ]
+
   workflow_dispatch:
     inputs:
       amb:
@@ -15,11 +15,10 @@ on:
         default: 'chrome'
           
 env:
-  DEFAULT_KEY: "740ed1f3-42c0-44c0-81ef-574f2fbe6aed"
+  DEFAULT_KEY: "4064e678-97a7-4d1b-a61e-4e7389daad25"
   DEFAULT_AMB: "qa"
   DEFAULT_BROWSER: "chrome"
-  DEFAULT_TAG: "@demo"
-  DEFAULT_GROUP: "Continuos Testing"
+  DEFAULT_GROUP: "Continuos Testing" 
 
 jobs:
   cypress-run-tests:
@@ -42,6 +41,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with: 
           command: npx cypress run --record --parallel --group ${{env.DEFAULT_GROUP}} --key ${{env.DEFAULT_KEY}} --browser ${{github.event.inputs.browser || env.DEFAULT_BROWSER}} --env version=${{github.event.inputs.amb || env.DEFAULT_AMB}} 
+      
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@master
         if: always()

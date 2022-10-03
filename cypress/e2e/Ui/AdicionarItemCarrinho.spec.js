@@ -46,6 +46,6 @@ describe('[US-0001] Adicionar item ao carrinho ', () => {
         cy.get('.coupon > .btn').click()
         cy.get(`[data-title="Cupom: ${desc15}"]`).should('be.visible')
         cy.get('.woocommerce-remove-coupon', { timeout: 10000 }).should('be.visible').click()
-        cy.get(':nth-child(1) > .product-remove > .remove > .fa').click()
+        cy.get(':nth-child(1) > .product-remove > .remove > .fa', { timeout: 10000 }).click()
     });
 });
