@@ -1,0 +1,59 @@
+name: ViaOps CI
+on:
+  pull_request:
+    branches: [ master, release/develop ]
+    
+  workflow_dispatch:
+    inputs:
+      amb:
+        description: 'Selecionar algum destes ambientes: dev / stg / hlg / prd'
+        required: false
+        default: 'qa'
+      browser:
+        description: 'Selecionar algum destes browsers: chrome / electron'
+        required: true
+        default: 'chrome'
+          
+env:
+  DEFAULT_KEY: "740ed1f3-42c0-44c0-81ef-574f2fbe6aed"
+  DEFAULT_AMB: "qa"
+  DEFAULT_BROWSER: "chrome"
+  DEFAULT_TAG: "@demo"
+  DEFAULT_GROUP: "Continuos Testing"
+
+jobs:
+  cypress-run-tests:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome96-ff94
+    strategy:
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Add Hosts
+        run: cat "${GITHUB_WORKSPACE}/ci/hosts.txt" >> /etc/hosts
+
+      - name: Cypress run tests
+        uses: cypress-io/github-action@v4
+        with: 
+          command: npx cypress run --record --parallel --group ${{env.DEFAULT_GROUP}} --key ${{env.DEFAULT_KEY}} --browser ${{github.event.inputs.browser || env.DEFAULT_BROWSER}} --env version=${{github.event.inputs.amb || env.DEFAULT_AMB}} 
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 20
+          
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history

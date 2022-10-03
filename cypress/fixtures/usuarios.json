@@ -1,0 +1,19 @@
+[
+    {
+        "usuario": "aluno_ebac@teste.com",
+        "senha": "teste@teste.com"
+    }, 
+    {
+        "usuario": "aluno_ebac@teste.com",
+        "senha": "passWrong"
+    },
+    {
+        "usuario": "aluno0ebac@teste.com",
+        "senha": "teste@teste.com"
+    },
+    {
+        "usuario": "admin_ebac",
+        "senha": "@admin!&b@c!2022",
+        "authorization": "Basic YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
+    }
+]

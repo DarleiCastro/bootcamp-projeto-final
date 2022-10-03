@@ -1,0 +1,84 @@
+[
+    {
+        "id": 7053,
+        "code": "viaboot10",
+        "amount": "10.00",
+        "date_created": "2022-10-02T02:10:51",
+        "date_created_gmt": "2022-10-02T05:10:51",
+        "date_modified": "2022-10-02T02:10:51",
+        "date_modified_gmt": "2022-10-02T05:10:51",
+        "discount_type": "percent",
+        "description": "",
+        "date_expires": null,
+        "date_expires_gmt": null,
+        "usage_count": 0,
+        "individual_use": false,
+        "product_ids": [],
+        "excluded_product_ids": [],
+        "usage_limit": null,
+        "usage_limit_per_user": null,
+        "limit_usage_to_x_items": null,
+        "free_shipping": false,
+        "product_categories": [],
+        "excluded_product_categories": [],
+        "exclude_sale_items": false,
+        "minimum_amount": "200.00",
+        "maximum_amount": "600.00",
+        "email_restrictions": [],
+        "used_by": [],
+        "meta_data": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http://lojaebac.ebaconline.art.br/wp-json/wc/v3/coupons/7053"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://lojaebac.ebaconline.art.br/wp-json/wc/v3/coupons"
+                }
+            ]
+        }
+    },
+    {
+        "id": 7056,
+        "code": "viaboot15",
+        "amount": "15.00",
+        "date_created": "2022-10-02T02:53:56",
+        "date_created_gmt": "2022-10-02T05:53:56",
+        "date_modified": "2022-10-02T02:53:56",
+        "date_modified_gmt": "2022-10-02T05:53:56",
+        "discount_type": "percent",
+        "description": "",
+        "date_expires": null,
+        "date_expires_gmt": null,
+        "usage_count": 0,
+        "individual_use": false,
+        "product_ids": [],
+        "excluded_product_ids": [],
+        "usage_limit": null,
+        "usage_limit_per_user": null,
+        "limit_usage_to_x_items": 10,
+        "free_shipping": false,
+        "product_categories": [],
+        "excluded_product_categories": [],
+        "exclude_sale_items": false,
+        "minimum_amount": "600.00",
+        "maximum_amount": "990.00",
+        "email_restrictions": [],
+        "used_by": [],
+        "meta_data": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http://lojaebac.ebaconline.art.br/wp-json/wc/v3/coupons/7056"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://lojaebac.ebaconline.art.br/wp-json/wc/v3/coupons"
+                }
+            ]
+        }
+    }
+]
